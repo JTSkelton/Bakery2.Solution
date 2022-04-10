@@ -17,10 +17,9 @@
 }
 else
 {
-<!-- <button type="button" class="btn-outline-info">@Html.ActionLink("NormalUser", "NormalUser")</button> -->
-    <button type="button" class="btn-outline-info">@Html.ActionLink("Register", "Register")</button>
-    <button type="button" class="btn-outline-info">@Html.ActionLink("Log in", "Login")</button> 
+    @Html.ActionLink("Register", "Register",  new { id = 0 }, new { @class = "btn btn-outline-success" })
+    @Html.ActionLink("Log in", "Login",  new { id = 0 }, new { @class = "btn btn-outline-success" }) 
 }
 <br />
 <br />
-<button type="button" class="btn btn-outline-success">@Html.ActionLink("Home", "Index", "Home")</button>
+@Html.ActionLink("Home", "Index", "Home",  new { id = 0 }, new { @class = "btn btn-outline-success" })

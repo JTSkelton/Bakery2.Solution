@@ -9,6 +9,6 @@
 {
   @Html.LabelFor(model => model.FlavorName)
   @Html.TextBoxFor(model => model.FlavorName)
-  <input type="submit" value="Add new Flavor" />
+  <input type="submit" value="Add new Flavor" class = "btn btn-outline-success" />
 }
-<button type="button" class="btn btn-outline-warning">@Html.ActionLink("Show all flavors", "Index")</button>
+@Html.ActionLink("Show all flavors", "Index",  new { id = 0 }, new { @class = "btn btn-outline-success" })

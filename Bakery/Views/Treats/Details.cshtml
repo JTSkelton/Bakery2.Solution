@@ -26,11 +26,23 @@
                 <td width 50%>
                     <h4>@Html.DisplayFor(model => model.TreatName)</h4>
                 </td>
-                <td width 50%>
-                    @Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId }, new { @class = "btn btn-outline-info" })
+                 <td width 50%>
+                    @if (User.Identity.IsAuthenticated)
+          {
+                    @Html.ActionLink("Add Flavor", "Addflavor", new { id = Model.TreatId }, new { @class = "btn btn-outline-info" })
+          }
                 </td>
                 <td width 50%>
+                   @if (User.Identity.IsAuthenticated)
+          {
+                    @Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId }, new { @class = "btn btn-outline-info" })
+          }
+                </td>
+                <td width 50%>
+                   @if (User.Identity.IsAuthenticated)
+          {
                     @Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId }, new { @class = "btn btn-outline-danger" })
+          }
                 </td>
             </tr>
     </tbody>

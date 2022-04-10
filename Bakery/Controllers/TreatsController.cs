@@ -37,13 +37,13 @@ namespace Bakery.Controllers
       return View(await treatname.ToListAsync());
     }
 
-    [AllowAnonymous]
+    [Authorize]
     public ActionResult Create()
     {
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
       return View();
     }
-    [AllowAnonymous]
+    [Authorize]
     [HttpPost]
     public ActionResult Create(Treat treat, int TreatId)
     {
@@ -87,7 +87,7 @@ namespace Bakery.Controllers
     public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
-      ViewBag.PatronId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
       return View(thisTreat);
     }
 

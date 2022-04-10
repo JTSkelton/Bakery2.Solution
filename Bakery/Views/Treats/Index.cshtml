@@ -6,7 +6,7 @@
 <br>
 <h1>Treats!!!</h1>
 
-<button type="button" class="btn btn-outline-success">@Html.ActionLink("Add New Treat", "Create")</button>
+@Html.ActionLink("Add New Treat", "Create", new { id = 0 }, new { @class = "btn btn-outline-success" })
 
 <table class="table table-borderd table-striped" style="width: 100%">
   <thead>

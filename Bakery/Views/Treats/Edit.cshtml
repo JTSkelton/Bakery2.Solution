@@ -18,6 +18,6 @@
   @Html.Label("Select Flavor")
   @Html.DropDownList("FlavorId") 
 
-  <input type="submit" value="Save" />
-}
-<p>@Html.ActionLink("Back to Treats", "Index")</p>
+  <input type="submit" value="Save" class = "btn btn-outline-success" />
+}<br>
+@Html.ActionLink("Add New Treat", "Create", new { id = 0 }, new { @class = "btn btn-outline-success" })
