@@ -45,15 +45,16 @@ namespace Bakery.Controllers
     }
     [Authorize]
     [HttpPost]
-    public ActionResult Create(Treat treat, int TreatId)
+    public ActionResult Create(Treat treat, int FlavorId)
     {
       _db.Treats.Add(treat);
       _db.SaveChanges();
-      if (TreatId != 0)
+      if (FlavorId != 0)
       {
-        _db.Treats.Add(new Treat() { TreatId = treat.TreatId });
-        _db.SaveChanges();
+      _db.TreatFlavors.Add(new TreatFlavor() { FlavorId = FlavorId, TreatId = treat.TreatId });
+      _db.SaveChanges();
       }
+
       return RedirectToAction("Index");
     }
     [AllowAnonymous]

@@ -14,7 +14,7 @@
   @Html.TextBoxFor(model => model.TreatName, new { @required  = "required"})
 
   @Html.Label("Select Flavor")
-  @Html.DropDownList("FlavorId")
+  @Html.DropDownList("FlavorId", "None")
 
   <button type="submit" class="btn btn-outline-success" >Add New Treat</button>
 

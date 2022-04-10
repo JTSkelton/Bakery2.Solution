@@ -21,10 +21,12 @@ else
   }
 }
 <br />
-<button type="button" class="btn btn-outline-success">@Html.ActionLink("Back to flavor", "Index")</button>
+@Html.ActionLink("Back to Flavors", "Index", new { id = 0}, new {@class = "btn btn-outline-success" })
+
 
 @if (User.Identity.IsAuthenticated)
 {
-  <button type="button" class="btn btn-outline-success">@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</button>
-  <button type="button" class="btn btn-outline-danger">@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</button>
+  @Html.ActionLink("Edit Flavor", "Edit", new { id = 0}, new {@class = "btn btn-outline-warning" })
+
+  @Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId }, new {@class="btn btn-outline-danger"})
 }
