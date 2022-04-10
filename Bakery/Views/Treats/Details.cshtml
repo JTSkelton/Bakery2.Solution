@@ -1,0 +1,69 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Bakery.Models.Treat
+
+<h1>@Html.DisplayFor(model => model.TreatName)'s Details</h1>
+
+
+<table class ="table table-borderd table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Treat
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr class="table table-hover table-dark">
+                <td width 10%>
+                    <h4>@Html.DisplayFor(model => model.TreatId)</h4>
+                </td>
+                <td width 50%>
+                    <h4>@Html.DisplayFor(model => model.TreatName)</h4>
+                </td>
+                <td width 50%>
+                    @Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId }, new { @class = "btn btn-outline-info" })
+                </td>
+                <td width 50%>
+                    @Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId }, new { @class = "btn btn-outline-danger" })
+                </td>
+            </tr>
+    </tbody>
+  </table>
+
+<h2>Different Flavors of This Treat: </h2>
+    <table class ="table table-borderd table-striped" style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+              Flavor Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var join in Model.TreatFlavorEntities)
+        {
+            <tr class="table table-hover table-secondary">
+                <td width 10%>
+                  <h4>@join.Flavor.FlavorId</h4>
+                </td>
+                <td width 50%>
+                  <h4>@join.Flavor.FlavorName</h4>
+                </td>
+                <td>
+                @Html.ActionLink("Details", "Details", "Flavors", new { id = @join.Flavor.FlavorId}, new { @class = "btn btn-outline-info" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Back to Treats", "Index", new { id = Model.TreatId }, new { @class = "btn btn-outline-info" })

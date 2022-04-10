@@ -1,0 +1,49 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Bakery.Models;
+<br>
+<h1>Treats!!!</h1>
+
+<button type="button" class="btn btn-outline-success">@Html.ActionLink("Add New Treat", "Create")</button>
+
+<table class="table table-borderd table-striped" style="width: 100%">
+  <thead>
+    <tr>
+      <th>
+        Id
+      </th>
+      <th>
+        Treat
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (Treat treat in Model)
+    {
+      <tr class="table table-hover table-dark">
+        <td width 10%>
+          @treat.TreatId
+        </td>
+        <td width 50%>
+          @treat.TreatName
+        <td width 50%>
+          @Html.ActionLink("Details", "Details", new { id = treat.TreatId }, new { @class = "btn btn-outline-info" })
+        </td>
+        <td width 50%>
+          @if (User.Identity.IsAuthenticated)
+          {
+            @Html.ActionLink("Edit treat", "Edit", new { id = treat.TreatId }, new { @class = "btn btn-outline-warning" })
+          }
+        </td>
+        <td width 50%>
+          @if (User.Identity.IsAuthenticated)
+          {
+          @Html.ActionLink("Delete treat", "Delete", new { id = treat.TreatId }, new { @class = "btn btn-outline-danger" })
+          }
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
